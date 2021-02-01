@@ -1,15 +1,19 @@
-const express = require('express');
+const express = require("express");
 
-const emojis = require('./emojis');
+const faqs = require("./faq");
+const auth = require("./auth");
+const task = require("./task");
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
   res.json({
-    message: 'API - 👋🌎🌍🌏'
+    message: "API - 👋🌎🌍🌏",
   });
 });
 
-router.use('/emojis', emojis);
+router.use("/faqs", faqs);
+router.use("/user", auth);
+router.use("/task", task);
 
 module.exports = router;
